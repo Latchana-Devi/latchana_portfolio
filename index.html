@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latchana Devi M V | Embedded Systems & IoT Engineering Portfolio</title>
+  <meta name="description" content="Personal portfolio of Latchana Devi M V — B.Tech ECE student at SRM IST, published patent inventor in IoT health monitoring, and embedded systems developer.">
+  <meta name="author" content="Latchana Devi M V">
+  <style>
+    /* CSS Reset & Variables */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f4f7fb;
+      --bg-card: #ffffff;
+      --text-main: #1f2429;
+      --text-muted: #4a5568;
+      --brand-blue: #1F4E78;
+      --brand-blue-hover: #153755;
+      --brand-blue-light: #eaf1f8;
+      --border-color: #d1dde8;
+      --border-card: #e2e8f0;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 12px rgba(31, 78, 120, 0.08);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Calibri, Arial, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 10px;
+      background: var(--brand-blue);
+      color: #ffffff;
+      padding: 8px 16px;
+      text-decoration: none;
+      z-index: 999;
+      border-radius: var(--radius-sm);
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 10px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--brand-blue);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.65rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--brand-blue-light);
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background-color: var(--brand-blue);
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    a {
+      color: var(--brand-blue);
+      text-decoration: underline;
+      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    a:hover, a:focus {
+      color: var(--brand-blue-hover);
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--brand-blue);
+      outline-offset: 3px;
+    }
+
+    /* Layout Containers */
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    section {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    /* Top Navigation Bar */
+    .navbar {
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.75rem 0;
+      gap: 0.5rem;
+    }
+
+    .nav-brand {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--brand-blue);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--brand-blue);
+      background-color: var(--brand-blue-light);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      align-items: flex-start;
+    }
+
+    .hero-avatar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--brand-blue);
+      background-color: var(--brand-blue-light);
+      display: block;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .hero-tagline {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-role {
+      font-size: 1rem;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      line-height: 1;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--brand-blue);
+      color: #ffffff;
+      border: 2px solid var(--brand-blue);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: var(--brand-blue-hover);
+      border-color: var(--brand-blue-hover);
+      color: #ffffff;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--brand-blue);
+      border: 2px solid var(--brand-blue);
+    }
+
+    .btn-outline:hover,
+    .btn-outline:focus {
+      background-color: var(--brand-blue);
+      color: #ffffff;
+    }
+
+    /* Badges & Meta Pills */
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin-right: 0.35rem;
+      margin-bottom: 0.35rem;
+      background-color: var(--brand-blue-light);
+      color: var(--brand-blue);
+      border: 1px solid var(--border-color);
+    }
+
+    .badge-patent {
+      background-color: #eaf1f8;
+      color: var(--brand-blue);
+      font-weight: 700;
+      border-color: var(--brand-blue);
+      padding: 0.3rem 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    /* About Section */
+    .about-lead {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-main);
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .skill-card h3 {
+      font-size: 1.05rem;
+      color: var(--brand-blue);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      list-style: none;
+    }
+
+    .skill-pill {
+      background-color: var(--bg-secondary);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.3rem 0.65rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    /* Patent Section */
+    .patent-card {
+      background-color: var(--bg-card);
+      border: 2px solid var(--brand-blue);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .patent-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .patent-title {
+      font-size: 1.35rem;
+      color: var(--brand-blue);
+    }
+
+    .patent-meta {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+      background-color: var(--bg-secondary);
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    .patent-meta strong {
+      color: var(--brand-blue);
+    }
+
+    /* Projects Section */
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .project-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--brand-blue);
+    }
+
+    .project-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .tech-stack-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-metrics {
+      background-color: var(--bg-secondary);
+      border-left: 3px solid var(--brand-blue);
+      padding: 0.75rem 1rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .project-metrics ul {
+      margin-left: 1.25rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-card);
+    }
+
+    .smaller-projects-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .smaller-project-item {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 0.9rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--brand-blue);
+      margin-left: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.95rem;
+      top: 0.35rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: var(--brand-blue);
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 0 1px var(--brand-blue);
+    }
+
+    .timeline-role {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--brand-blue);
+    }
+
+    .timeline-org {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .timeline-date {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    /* Publications & Certifications */
+    .pub-cert-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .sub-section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .custom-list {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .custom-list li {
+      color: var(--text-main);
+    }
+
+    /* Leadership Section */
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .leadership-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+    }
+
+    .leadership-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-secondary);
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .contact-label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-value {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--brand-blue);
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive Media Queries (Mobile-First) */
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 2.6rem;
+      }
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pub-cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .leadership-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .patent-meta {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .smaller-project-item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .nav-inner {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .hero-content {
+        flex-direction: row;
+        align-items: center;
+      }
+      .hero-avatar-wrap {
+        width: auto;
+      }
+      .profile-photo {
+        width: 140px;
+        height: 140px;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Accessibility Skip Navigation -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" role="banner">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-brand">Latchana Devi M V</a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#patent">Patent</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero" aria-labelledby="hero-name">
+      <div class="container hero-content">
+        <div class="hero-avatar-wrap">
+          <!-- Profile Photo -->
+          <img src="profile.jpg" alt="Latchana Devi M V" class="profile-photo">
+          <div class="hero-text">
+            <h1 id="hero-name">Latchana Devi M V</h1>
+            <p class="hero-tagline">Published inventor with a patent in IoT health monitoring | Embedded systems and sensor-based projects</p>
+            <p class="hero-role">B.Tech Electronics &amp; Communication Engineering student, SRM Institute of Science and Technology &bull; CGPA 9.16/10 &bull; Batch 2027</p>
+            <div class="hero-actions">
+              <a href="resume.pdf" class="btn btn-primary" download="resume.pdf">Download Resume</a>
+              <a href="https://github.com/Latchana-Devi" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://linkedin.com/in/latchana-devi-7484a6358" class="btn btn-outline" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="mailto:moorthittp@gmail.com" class="btn btn-outline">Email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. About Section -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 id="about-heading">About Me</h2>
+        <p class="about-lead">
+          I am a B.Tech Electronics &amp; Communication Engineering undergraduate at SRM Institute of Science and Technology (Batch 2027, CGPA 9.16/10) specializing in embedded systems and sensor-driven hardware solutions. As a published inventor with an Indian Patent Office publication in IoT respiratory health monitoring, I focus on building dependable architectures that bridge physical sensor acquisition with cloud telemetry. My hands-on technical work centers on programming microcontrollers like STM32 and ESP32 using Embedded C to resolve real-world timing, calibration, and power constraints. I enjoy taking ideas all the way from breadboard hardware validation to conference-published systems, combining analytical discipline with active engineering leadership.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. Skills Section -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <h2 id="skills-heading">Technical Skills</h2>
+        <div class="skills-grid">
+          <!-- Languages -->
+          <article class="skill-card">
+            <h3>Languages</h3>
+            <ul class="skill-list">
+              <li class="skill-pill">C</li>
+              <li class="skill-pill">Embedded C</li>
+              <li class="skill-pill">C++</li>
+              <li class="skill-pill">Python</li>
+              <li class="skill-pill">VerilogHDL (coursework)</li>
+            </ul>
+          </article>
+
+          <!-- Hardware and Platforms -->
+          <article class="skill-card">
+            <h3>Hardware &amp; Platforms</h3>
+            <ul class="skill-list">
+              <li class="skill-pill">STM32</li>
+              <li class="skill-pill">ESP32</li>
+              <li class="skill-pill">ESP8266</li>
+              <li class="skill-pill">Arduino</li>
+            </ul>
+          </article>
+
+          <!-- Protocols -->
+          <article class="skill-card">
+            <h3>Protocols</h3>
+            <ul class="skill-list">
+              <li class="skill-pill">I2C</li>
+              <li class="skill-pill">UART</li>
+            </ul>
+          </article>
+
+          <!-- Tools -->
+          <article class="skill-card">
+            <h3>Tools</h3>
+            <ul class="skill-list">
+              <li class="skill-pill">VS Code</li>
+              <li class="skill-pill">Git / GitHub</li>
+              <li class="skill-pill">Arduino IDE</li>
+              <li class="skill-pill">Jupyter Notebook</li>
+              <li class="skill-pill">Multimeter</li>
+            </ul>
+          </article>
+
+          <!-- Cloud and Data -->
+          <article class="skill-card">
+            <h3>Cloud &amp; Data</h3>
+            <ul class="skill-list">
+              <li class="skill-pill">ThingSpeak</li>
+              <li class="skill-pill">REST API</li>
+              <li class="skill-pill">AWS Fundamentals</li>
+              <li class="skill-pill">SQL</li>
+              <li class="skill-pill">Advanced Excel</li>
+            </ul>
+          </article>
+
+          <!-- Basic Level -->
+          <article class="skill-card">
+            <h3>Basic Level (Foundational)</h3>
+            <ul class="skill-list">
+              <li class="skill-pill">MATLAB</li>
+              <li class="skill-pill">Linux</li>
+              <li class="skill-pill">Power BI</li>
+              <li class="skill-pill">Tableau</li>
+              <li class="skill-pill">MongoDB</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Patent Section -->
+    <section id="patent" aria-labelledby="patent-heading">
+      <div class="container">
+        <h2 id="patent-heading">Patent</h2>
+        <article class="patent-card">
+          <div class="patent-header">
+            <span class="badge badge-patent">Indian Patent Office &bull; Published</span>
+            <h3 class="patent-title">Portable Air Quality and Respiratory Health Monitor</h3>
+          </div>
+          <p>
+            An IoT wearable designed for continuous air quality and respiratory health monitoring with real-time sensor processing and automated health alerts. Comprises 6 comprehensive technical claims covering continuous acquisition, noise filtering, and telemetry.
+          </p>
+          <div class="patent-meta">
+            <div><strong>Application No.:</strong> 202641064525 A</div>
+            <div><strong>Publication Date:</strong> 4 September 2026</div>
+            <div><strong>Lead Inventor:</strong> Latchana Devi M V</div>
+            <div><strong>Co-Inventor:</strong> Dr. Rajesh V, SRM IST, Tiruchirappalli</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. Projects Section -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 id="projects-heading">Projects</h2>
+        <div class="projects-container">
+          <!-- Project A -->
+          <article class="project-card">
+            <h3>EV Charging Station Management</h3>
+            <div class="tech-stack-row">
+              <span class="badge">STM32</span>
+              <span class="badge">Voltage / Current Sensors</span>
+              <span class="badge">Relay Modules</span>
+              <span class="badge">UART</span>
+              <span class="badge">I2C</span>
+              <span class="badge">ThingSpeak</span>
+              <span class="badge">Embedded C</span>
+            </div>
+            <p>
+              Developed an intelligent electric vehicle charging monitoring system using STM32 microcontroller and Embedded C to oversee charging cycles, manage current/voltage dynamics, and prevent overcharge conditions.
+            </p>
+            <div class="project-metrics">
+              <strong>Key Metrics &amp; Benchmarks:</strong>
+              <ul>
+                <li>Sensors polled and read every 100 ms with calibration achieving &plusmn;2% accuracy.</li>
+                <li>Achieved a 15% efficiency improvement across battery charging cycles.</li>
+                <li>Telemetry updates streamed securely to ThingSpeak cloud every 15 seconds.</li>
+                <li>Research Published at ICIECST-2025 International Conference: <em>&ldquo;Analysing Quick Charge of Lead Acid Battery in EV&rdquo;</em>.</li>
+              </ul>
+            </div>
+            <div class="project-footer">
+              <span>Conference: ICIECST-2025</span>
+              <a href="[ADD LINK: EV Charging Station GitHub Repo]" class="btn btn-outline" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            </div>
+          </article>
+
+          <!-- Project B -->
+          <article class="project-card">
+            <h3>Air Quality and Respiratory Health Monitor</h3>
+            <div class="tech-stack-row">
+              <span class="badge">ESP32</span>
+              <span class="badge">MQ Gas Sensor</span>
+              <span class="badge">ThingSpeak</span>
+              <span class="badge">Embedded C</span>
+            </div>
+            <p>
+              Designed and built an IoT-based respiratory and environmental health monitor. This project established the experimental foundation and technical validation for Indian Patent Application No. 202641064525 A.
+            </p>
+            <div class="project-metrics">
+              <strong>Key Metrics &amp; Benchmarks:</strong>
+              <ul>
+                <li>High-frequency sensor reads sampled every 100 ms.</li>
+                <li>Eliminated false alerts arising from raw sensor noise by engineering a 10-reading moving average filter.</li>
+                <li>Validated continuous operation with zero false alerts across 72+ hours of rigorous hardware stress testing.</li>
+                <li>Presented at JFinagles 2025 National Symposium.</li>
+              </ul>
+            </div>
+            <div class="project-footer">
+              <span>Symposium: JFinagles 2025 &bull; Basis of Patent</span>
+              <a href="[ADD LINK: Air Quality Monitor GitHub Repo]" class="btn btn-outline" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            </div>
+          </article>
+
+          <!-- Smaller Projects -->
+          <div>
+            <h3 style="margin-top: 0.5rem; margin-bottom: 0.75rem;">Additional Embedded Projects</h3>
+            <ul class="smaller-projects-list">
+              <li class="smaller-project-item">
+                <div>
+                  <strong>Industrial Mobile Robot Health Monitoring</strong> &mdash; Built with Arduino and simulated via Wokwi for condition monitoring.
+                </div>
+                <div>
+                  <a href="[ADD LINK: Industrial Mobile Robot GitHub Repo]" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                </div>
+              </li>
+              <li class="smaller-project-item">
+                <div>
+                  <strong>Theft Vehicle Detection</strong> &mdash; RFID-based authentication and vehicle security tracking system.
+                </div>
+                <div>
+                  <a href="[ADD LINK: Theft Vehicle Detection GitHub Repo]" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                </div>
+              </li>
+              <li class="smaller-project-item">
+                <div>
+                  <strong>Obstacle Detection System</strong> &mdash; Implemented using ultrasonic sensors and Embedded C for proximity detection.
+                </div>
+                <div>
+                  <a href="[ADD LINK: Obstacle Detection System GitHub Repo]" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Experience Section -->
+    <section id="experience" aria-labelledby="experience-heading">
+      <div class="container">
+        <h2 id="experience-heading">Experience</h2>
+        <div class="timeline">
+          <!-- Role 1 -->
+          <article class="timeline-item">
+            <h3 class="timeline-role">Assistant EDA Developer Intern</h3>
+            <div class="timeline-org">Picco2femto Semiconductor Devices Pvt Ltd</div>
+            <div class="timeline-date">February 2026 &ndash; Present</div>
+            <p>
+              Contributing to electronic design automation tools and workflows for semiconductor device modeling.
+            </p>
+          </article>
+
+          <!-- Role 2 -->
+          <article class="timeline-item">
+            <h3 class="timeline-role">Electronics Intern</h3>
+            <div class="timeline-org">Caliber Institute, Salem</div>
+            <div class="timeline-date">June 2025 &ndash; July 2025</div>
+            <p>
+              Worked on hands-on electronic circuit design, component testing, and embedded hardware troubleshooting.
+            </p>
+          </article>
+
+          <!-- Role 3 -->
+          <article class="timeline-item">
+            <h3 class="timeline-role">Telecom Infrastructure Intern</h3>
+            <div class="timeline-org">BSNL</div>
+            <div class="timeline-date">December 2024</div>
+            <p>
+              Gained practical exposure to telecommunication network hardware, exchange operations, and transmission line infrastructure.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Publications and Certifications Section -->
+    <section id="publications" aria-labelledby="pub-cert-heading">
+      <div class="container">
+        <h2 id="pub-cert-heading">Publications &amp; Certifications</h2>
+        <div class="pub-cert-grid">
+          <!-- Publications -->
+          <article class="sub-section-card">
+            <h3>Publications &amp; Symposia</h3>
+            <ul class="custom-list">
+              <li>
+                <strong>ICIECST-2025 International Conference:</strong> Presented paper titled <em>&ldquo;Analysing Quick Charge of Lead Acid Battery in EV&rdquo;</em>.
+              </li>
+              <li>
+                <strong>JFinagles 2025 National Symposium:</strong> Technical presentation on <em>&ldquo;Air Quality and Respiratory Health Monitor&rdquo;</em>.
+              </li>
+            </ul>
+          </article>
+
+          <!-- Certifications -->
+          <article class="sub-section-card">
+            <h3>Certifications &amp; Workshops</h3>
+            <ul class="custom-list">
+              <li>
+                <strong>AWS Fundamentals</strong> &mdash; Forage
+              </li>
+              <li>
+                <strong>MongoDB Basics for Students</strong> &mdash; MongoDB University
+              </li>
+              <li>
+                <strong>Chip Design</strong> &mdash; OpenPOWER
+              </li>
+              <li>
+                <strong>Digital Security &amp; Privacy Awareness Workshop</strong>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Leadership Section -->
+    <section id="leadership" aria-labelledby="leadership-heading">
+      <div class="container">
+        <h2 id="leadership-heading">Leadership &amp; Activities</h2>
+        <div class="leadership-grid">
+          <article class="leadership-card">
+            <h3>Founder &amp; Lead</h3>
+            <p><strong>Silicon Synergy Technical Club</strong> &mdash; Spearheading technical workshops, embedded hardware sessions, and peer mentoring.</p>
+          </article>
+
+          <article class="leadership-card">
+            <h3>Robotics Club Member</h3>
+            <p>Active contributor to robotics team projects, system integration, and hardware troubleshooting.</p>
+          </article>
+
+          <article class="leadership-card">
+            <h3>Hackathon Participant</h3>
+            <p>Participating in competitive engineering hackathons focused on rapid hardware prototyping and IoT problem solving.</p>
+          </article>
+
+          <article class="leadership-card">
+            <h3>MC / Event Host</h3>
+            <p>Master of Ceremonies and host for formal college symposiums and departmental technical events.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Contact Section -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading">Contact</h2>
+        <div class="contact-card">
+          <p>
+            Feel free to reach out for opportunities in embedded systems, IoT engineering, hardware projects, or research collaboration.
+          </p>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <span class="contact-label">Email</span>
+              <a href="mailto:moorthittp@gmail.com" class="contact-value">moorthittp@gmail.com</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">Phone</span>
+              <a href="tel:9360051493" class="contact-value">+91 9360051493</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">LinkedIn</span>
+              <a href="https://linkedin.com/in/latchana-devi-7484a6358" class="contact-value" target="_blank" rel="noopener noreferrer">linkedin.com/in/latchana-devi-7484a6358</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">GitHub</span>
+              <a href="https://github.com/Latchana-Devi" class="contact-value" target="_blank" rel="noopener noreferrer">github.com/Latchana-Devi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 10. Footer -->
+  <footer role="contentinfo">
+    <div class="container">
+      <p>&copy; 2026 Latchana Devi M V. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
